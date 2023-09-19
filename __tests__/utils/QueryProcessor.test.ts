@@ -38,6 +38,16 @@ describe("QueryProcessor", () => {
             "55"
         ));
     });
+
+
+    test('should multiply ', () => {
+        const query = "What is 11 multiplied by 5";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "55"
+        ));
+    });
+    
     test('should find max', () => {
         const query = "Which of the following numbers is the largest: 12, 5, 197"
         const response: string = QueryProcessor(query);
