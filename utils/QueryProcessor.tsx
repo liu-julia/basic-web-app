@@ -31,4 +31,5 @@ export default function QueryProcessor(query: string): string {
     const z: number = parseInt (maxInt[3]);
     return Math.max(x, y, z).toString();
   }
+  return "";
 }
