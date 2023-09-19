@@ -62,17 +62,18 @@ export default function QueryProcessor(query: string): string {
     const a: number = parseInt (prime[4]);
     const b: number = parseInt (prime[5]);
     
+    var sol: String = "";
     if (isPrime(a))
-      return a.toString();
+      sol + a.toString();
     if (isPrime(b))
-      return b.toString();
+      sol + b.toString();
     if (isPrime(x))
-      return x.toString();
+      sol + x.toString();
     if (isPrime(y))
-      return y.toString();
+      sol + y.toString();
     if (isPrime(z))
-      return z.toString();
-
+      sol + z.toString();
+    return sol;
   }
   return "";
 
