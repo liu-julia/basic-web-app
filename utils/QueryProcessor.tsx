@@ -45,6 +45,13 @@ export default function QueryProcessor(query: string): string {
     return (x-y).toString();
   }
 
+  const powMatch = query.match(/What is (\d+) to the power of (\d+)/);
+  if (powMatch) {
+    const x: number = parseInt(powMatch[1]);
+    const y: number = parseInt(powMatch[2]);
+    return Math.pow(x,y).toString();
+  }
+
   const maxInt = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
   if (maxInt) {
     const x: number = parseInt (maxInt[1]);
@@ -62,7 +69,7 @@ export default function QueryProcessor(query: string): string {
     const a: number = parseInt (prime[4]);
     const b: number = parseInt (prime[5]);
     
-    var sol: String = "";
+    var sol: string = "";
     if (isPrime(a))
       sol + a.toString();
     if (isPrime(b))
