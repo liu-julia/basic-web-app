@@ -17,5 +17,18 @@ export default function QueryProcessor(query: string): string {
     )
   }
 
-  return "";
+  const addMatch = query.match(/What is (\d+) plus (\d+)/);
+  if (addMatch) {
+    const x: number = parseInt(addMatch[1]);
+    const y: number = parseInt(addMatch[2]);
+    return (x+y).toString();
+  }
+  
+  const maxInt = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
+  if (maxInt) {
+    const x: number = parseInt (maxInt[1]);
+    const y: number = parseInt (maxInt[2]);
+    const z: number = parseInt (maxInt[3]);
+    return Math.max(x, y, z).toString();
+  }
 }

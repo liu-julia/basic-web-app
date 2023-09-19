@@ -31,4 +31,18 @@ describe("QueryProcessor", () => {
             "julia"
           ));
     });
+    test('should add ', () => {
+        const query = "What is 43 plus 12";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "55"
+        ));
+    });
+    test('should find max', () => {
+        const query = "Which of the following numbers is the largest: 12, 5, 197"
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "197"
+        ));
+    });
 });
