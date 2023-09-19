@@ -71,14 +71,24 @@ export default function QueryProcessor(query: string): string {
     
     var sol: string = "";
     if (isPrime(a))
+      if (sol!==(""))
+        sol + ", "
       sol + a.toString();
     if (isPrime(b))
+      if (sol!==(""))
+        sol + ", "
       sol + b.toString();
     if (isPrime(x))
+      if (sol!==(""))
+        sol + ", "
       sol + x.toString();
     if (isPrime(y))
+      if (sol!==(""))
+        sol + ", "
       sol + y.toString();
     if (isPrime(z))
+      if (sol!==(""))
+        sol + ", "
       sol + z.toString();
     return sol;
   }
