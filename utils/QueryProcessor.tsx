@@ -1,3 +1,11 @@
+function isPrime (num: number): boolean {
+  for(let i = 2, s = Math.sqrt(num); i <= s; i++) {
+      if(num % i === 0) return false;
+  }
+  return num > 1;
+}
+// https://stackoverflow.com/questions/40200089/check-number-prime-in-javascript
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -45,56 +53,26 @@ export default function QueryProcessor(query: string): string {
     return Math.max(x, y, z).toString();
   }
 
-  const sqcube = query.match(/Which of the following numbers is both a square and a cube: (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)/);
-  if (sqcube) {
-    const x: number = parseInt (sqcube[1]);
-    const y: number = parseInt (sqcube[2]);
-    const z: number = parseInt (sqcube[3]);
+  const prime = query.match(/Which of the following numbers are prime: (\d+), (\d+), (\d+), (\d+), (\d+)/);
+  if (prime) {
+    const x: number = parseInt (prime[1]);
+    const y: number = parseInt (prime[2]);
+    const z: number = parseInt (prime[3]);
     
-    const a: number = parseInt (sqcube[4]);
-    const b: number = parseInt (sqcube[5]);
-    const c: number = parseInt (sqcube[6]);
-    const d: number = parseInt (sqcube[7]);
+    const a: number = parseInt (prime[4]);
+    const b: number = parseInt (prime[5]);
     
-    if (Number.isInteger(Math.sqrt(a))) {
-      if (Number.isInteger(Math.cbrt(a))) {
-        return a.toString();
-      }
-    }
+    if (isPrime(a))
+      return a.toString();
+    if (isPrime(b))
+      return b.toString();
+    if (isPrime(x))
+      return x.toString();
+    if (isPrime(y))
+      return y.toString();
+    if (isPrime(z))
+      return z.toString();
 
-    if (Number.isInteger(Math.sqrt(b))) {
-      if (Number.isInteger(Math.cbrt(b))) {
-        return b.toString();
-      }
-    }
-
-    if (Number.isInteger(Math.sqrt(c))) {
-      if (Number.isInteger(Math.cbrt(c))) {
-        return c.toString();
-      }
-    }
-
-    if (Number.isInteger(Math.sqrt(d))) {
-      if (Number.isInteger(Math.cbrt(d))) {
-        return d.toString();
-      }
-    }
-    if (Number.isInteger(Math.sqrt(x))) {
-      if (Number.isInteger(Math.cbrt(x))) {
-        return x.toString();
-      }
-    }
-
-    if (Number.isInteger(Math.sqrt(y))) {
-      if (Number.isInteger(Math.cbrt(y))) {
-        return y.toString();
-      }
-    }
-    if (Number.isInteger(Math.sqrt(z))) {
-      if (Number.isInteger(Math.cbrt(z))) {
-        return z.toString();
-      }
-    }
   }
   return "";
 
